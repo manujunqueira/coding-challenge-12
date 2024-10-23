@@ -13,6 +13,8 @@
 <body>
   <h1>Interactive Drawing Application</h1>
 
+
+  <!-- Tool selection -->
   <div>
     <label>
       <input type="radio" name="shape" value="line" checked> Line
@@ -25,15 +27,19 @@
     </label>
   </div>
 
+    <!-- Color picker -->
   <div>
     <label for="colorPicker">Select Color:</label>
     <input type="color" id="colorPicker" value="#000000">
   </div>
 
+    <!-- Clear button -->
   <button id="clearCanvas">Clear Canvas</button>
 
+    <!-- Canvas element -->
   <canvas id="drawingCanvas" width="800" height="600"></canvas>
 
+  <!-- Link to JavaScript file -->
   <script src="app.js"></script>
 </body>
 </html>
