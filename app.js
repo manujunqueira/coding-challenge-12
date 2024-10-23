@@ -46,3 +46,36 @@ canvas.addEventListener('mouseup', () => {
     // clear the canvas temporarily for dynamic drawing (continue in Task 3)
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
+
+
+  // task 3 - Implement Shape Drawing Logic
+
+  function drawShape(x1, y1, x2, y2){ //function to draw the selected shape
+    ctx.strokeStyle = currentColor;// set the color 
+    ctx.beginPath();
+
+    // !!this part isnt working!! work on it later 
+    
+    if (currentShape === `line`){ // draw a line
+        ctx.moveTo(x1, y1); 
+        ctx.lineTo(x2, y2);
+    } else if (currentShape === ` rectangle`){ // draw a rectangle
+        ctx.rect(x1, y1, x2 - x1, y2 - y1);
+    } else if (currentShape === `circle`){ // draw a circle
+        const radius = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    ctx.arc(x1, y1, radius, 0, Math.PI * 2);
+    }
+ 
+    ctx.stroke(); // apply the drawing (stroke)
+  }
+
+  // update the mousemove event to call drawShape
+canvas.addEventListener('mousemove', (e) => {
+    if (!drawing) return;
+  
+    const currentX = e.offsetX;
+    const currentY = e.offsetY;
+  
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  // clear the canvas 
+    drawShape(startX, startY, currentX, currentY);  // draw the shape
+  });
