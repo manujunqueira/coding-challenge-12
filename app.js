@@ -55,7 +55,7 @@ canvas.addEventListener('mouseup', () => {
     ctx.beginPath();
 
     // !!this part isnt working!! work on it later 
-    
+
     if (currentShape === `line`){ // draw a line
         ctx.moveTo(x1, y1); 
         ctx.lineTo(x2, y2);
@@ -79,3 +79,11 @@ canvas.addEventListener('mousemove', (e) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);  // clear the canvas 
     drawShape(startX, startY, currentX, currentY);  // draw the shape
   });
+
+  // Task 4 - Add Color Selection and Canvas Clearing
+
+  // Clear canvas when the button is clicked
+clearBtn.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  });
+  
