@@ -2,7 +2,7 @@
 
 // get references to canvas and other DOM elements
 const canvas = document.getElementById(`drawingCanvas`); //canvas element
-const ctx = document.getContex('2d'); // for drawing context, 2D drawing context
+const ctx = canvas.getContext('2d'); // for drawing context, 2D drawing context
 const clearBtn = document.getElementById(`clearCanvas`); // button to clear the canvas
 const colorPicker = document.getElementById(`colorPicker`); // color picker input
 const shapeSelector = document.querySelectorAll(`input[name="shape"]`);// radio buttons for shape selection
@@ -54,12 +54,11 @@ canvas.addEventListener('mouseup', () => {
     ctx.strokeStyle = currentColor;// set the color 
     ctx.beginPath();
 
-    // !!this part isnt working!! work on it later 
 
     if (currentShape === `line`){ // draw a line
         ctx.moveTo(x1, y1); 
         ctx.lineTo(x2, y2);
-    } else if (currentShape === ` rectangle`){ // draw a rectangle
+    } else if (currentShape === `rectangle`){ // draw a rectangle
         ctx.rect(x1, y1, x2 - x1, y2 - y1);
     } else if (currentShape === `circle`){ // draw a circle
         const radius = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
